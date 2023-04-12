@@ -1,7 +1,9 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
 import {useState, useEffect} from 'react';
 import axios from 'axios';
+
+// import Home from './components/Home'
 
 const App = () => {
 	const [newName, setNewName] = useState('');
@@ -69,8 +71,8 @@ const App = () => {
 		</section>
 		<section>
 			<h3>Shoes</h3>
-			<ul>
-				{shoes.map((shoe) => {
+			<ul >
+				{shoes.map(shoe => {
 					return (
 						<li onClick={(e)=>{handleUpdate(shoe)}} key={shoe._id}>
 							<h5>{shoe.name}</h5>

@@ -9,7 +9,7 @@ const App = () => {
 
   const handleCreate = (addShoe) => {
     axios 
-      .post('http://localhost:8000/shoes', addShoe)
+      .post('https://shoebox-backend.onrender.com/shoes', addShoe)
       .then((res) => {
         console.log(res)
         getShoes()
@@ -18,7 +18,7 @@ const App = () => {
 
   const handleDelete = (e) => {
     axios
-      .delete(`http://localhost:8000/shoes/${e.target.value}`)
+      .delete(`https://shoebox-backend.onrender.com/shoes/${e.target.value}`)
       .then((res) => {
         getShoes();
       })
@@ -26,7 +26,7 @@ const App = () => {
 
   const handleUpdate = (editShoe) => {
     axios
-      .put(`http://localhost:8000/shoes/${editShoe.id}`, editShoe)
+      .put(`https://shoebox-backend.onrender.com/shoes/${editShoe.id}`, editShoe)
       .then((res) => {
         getShoes()
       })
@@ -34,7 +34,7 @@ const App = () => {
 
   const getShoes = () => {
     axios
-      .get('http://localhost:8000/shoes')
+      .get('https://shoebox-backend.onrender.com/shoes')
       .then(
         (res) => setShoes(res.data),
         (err) => console.log(err)

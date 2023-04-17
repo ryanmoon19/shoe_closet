@@ -19,7 +19,7 @@ const Add = (props) => {
         setShoe({...shoe, [e.target.name]: e.target.value})
     };
 
-    const handleSubmit = async(e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
         await handleCreate(shoe)
         navigate('/display')
@@ -27,21 +27,24 @@ const Add = (props) => {
 
     return (
         <>
-            <form onSubmit={handleSubmit}>
-                <label htmlFor="name">Name: </label>
-                <input type="text" name="name" onChange={handleChange}/>
+            <div >
+                <h1 className="text-center mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">ADD NEW SHOE</h1>
+            <form className="bg-black py-8 px-6 shadow-lg rounded-lg sm:px-10" onSubmit={handleSubmit}>
+                <label className='block text-xl font-medium text-white-700' htmlFor="name">Name: </label>
+                <input className='w-full border border-gray-400 px-3 py-1 rounded-md shadow-lg focus:outline-none focus:border-blue-600 text-black' type="text" name="name" onChange={handleChange}/>
                 <br/>
-                <label htmlFor="description">Description: </label>
-                <input type="text" name="description" onChange={handleChange}/>
+                <label className='block text-xl font-medium text-white-700' htmlFor="price">Price: </label>
+                <input className='w-full border border-gray-400 px-3 py-1 rounded-md shadow-lg focus:outline-none focus:border-blue-600 text-black' type="number" name="price" onChange={handleChange}/>
                 <br/>
-                <label htmlFor="price">Price: </label>
-                <input type="number" name="price" onChange={handleChange}/>
+                <label className='block text-xl font-medium text-white-700' htmlFor="description">Description: </label>
+                <input className='w-full border border-gray-400 px-3 py-1 rounded-md shadow-lg focus:outline-none focus:border-blue-600 text-black' type="text" name="description" onChange={handleChange}/>
                 <br/>
-                <label htmlFor="image">Image: </label>
-                <input type="text" name="image" onChange={handleChange}/>
+                <label className='block text-xl font-medium text-white-700' htmlFor="image">Image: </label>
+                <input className='w-full border border-gray-400 px-3 py-1 rounded-md shadow-lg focus:outline-none focus:border-blue-600 text-black' type="text" name="image" onChange={handleChange}/>
                 <br/>
-                <input type="submit" /> 
+                <input className='w-full border border-gray-400 px-3 py-1 rounded-md shadow-lg focus:outline-none focus:border-blue-600 focus:ring-1 focus:ring-blue-300 text-white' type="submit" /> 
             </form>
+            </div>
         </>
     )
 }

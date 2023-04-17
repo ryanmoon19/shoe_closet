@@ -20,6 +20,9 @@ const Display = () => {
             console.log(res)
             getShoes()
         })
+        .catch((err) => {
+            console.log(err)
+        })
     };
 
     // const handleDelete = (e) => {
@@ -29,16 +32,16 @@ const Display = () => {
     //         getShoes();
     //     })
     // }
-    const handleChange = (event) => {
-        setSearchField(event.target.value)
-    }
+    // const handleChange = (event) => {
+    //     setSearchField(event.target.value)
+    // }
     
-    const handleKeyDown = (event) => {
-        if (event.key === 'Enter') {
-            setSearch(searchField)
-            setcheckSearch(true)
-        }
-    }
+    // const handleKeyDown = (event) => {
+    //     if (event.key === 'Enter') {
+    //         setSearch(searchField)
+    //         setcheckSearch(true)
+    //     }
+    // }
 
     const handleUpdate = (editShoe) => {
         axios
@@ -64,24 +67,29 @@ const Display = () => {
 
 
     return (
-        <>
-            <h1 className="text-center mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">SHOEBOX</h1>
-            
-            <div className='text-center'>
-                <button type='button' className="text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
-                <Link to={'/add'}>Add</Link>
+        <> 
+            <nav className='flex justify-end'>
+                <button type='button' className=" mr-4 text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
+                <Link to={'/add'}>Add New Shoe</Link>
                 </button>
-            </div>
-            <div className= "flex flex-col items-center justify-center w-screen h-40">
-                <input className="my-0 text-black border border-gray-400 rounded-md w-96 px-4 py-3 mt-4"type="text" placeholder="search" onChange={handleChange} onKeyDown={handleKeyDown}/>
+                <button className='mr-4 text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2'>Login</button>
+                <button className="mr-4 text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Create Account</button>
+                
+                
+            </nav>
+            <h1 className=" text-center mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl lg:text-6xl dark:text-white">SHOEBOX</h1>
+            
+            {/* <div className='text-center'>
+                
+            </div> */}
+            {/* <div className= "flex flex-col items-center justify-center w-screen h-40">
+                <input className="my-0 text-black border border-gray-400 rounded-md w-96 px-4 py-3 mt-4"type="text" placeholder="search" onChange={handleChange} onKeyDown={handleKeyDown} />
             </div>
             <div>
                 <h3></h3>
                 {checkSearch ? <p className="text-[15px] text-center">Search results: {search}</p> : <></>}
-            </div>
-            <div>
+            </div> */}
 
-            </div>
             <div className='grid grid-cols-1 md:grid-cols-3 gap-4'>
                 {shoes.map((shoe) => {
                 return (

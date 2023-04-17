@@ -12,14 +12,15 @@ const Display = () => {
     const [searchField, setSearchField] = useState("")
     const [checkSearch, setcheckSearch] = useState(false)
     const [openModal, setOpenModal] = useState(false)
-    // const handleCreate = (addShoe) => {
-    //     axios 
-    //     .post('https://shoebox-backend.onrender.com/shoes', addShoe)
-    //     .then((res) => {
-    //         console.log(res)
-    //         getShoes()
-    //     })
-    // };
+    
+    const handleCreate = (addShoe) => {
+        axios 
+        .post('https://shoebox-backend.onrender.com/shoes', addShoe)
+        .then((res) => {
+            console.log(res)
+            getShoes()
+        })
+    };
 
     // const handleDelete = (e) => {
     //     axios
@@ -39,13 +40,13 @@ const Display = () => {
         }
     }
 
-    // const handleUpdate = (editShoe) => {
-    //     axios
-    //     .put(`https://shoebox-backend.onrender.com/shoes/${editShoe.id}`, editShoe)
-    //     .then((res) => {
-    //         getShoes()
-    //     })
-    // }
+    const handleUpdate = (editShoe) => {
+        axios
+        .put(`https://shoebox-backend.onrender.com/shoes/${editShoe.id}`, editShoe)
+        .then((res) => {
+            getShoes()
+        })
+    }
 
     const getShoes = () => {
         axios
@@ -65,7 +66,7 @@ const Display = () => {
     return (
         <>
             <h1 className="text-center mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">SHOEBOX</h1>
-            {/* <Add handleCreate={handleCreate}/> */}
+            
             <div className='text-center'>
                 <button type='button' className="text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
                 <Link to={'/add'}>Add</Link>
@@ -86,6 +87,11 @@ const Display = () => {
                 return (
                     <div className='grid gap-4' key={shoe.id}> 
                         <div>
+                            {/* <h4>Name: {shoe.name}</h4>
+                            <h5>Description: {shoe.description}</h5>
+                            <h5>Price: {shoe.price}</h5> */}
+                        </div>
+                        <div>
                             <Link to={`/oneshoe/${shoe.id}`}>
                                 <img className='h-auto max-w-full rounded-lg' src={shoe.image} ></img>
                             </Link>
@@ -100,9 +106,12 @@ const Display = () => {
                                 </div>
                             </div>
                         </div>
+                        <Edit handleUpdate={handleUpdate} shoe={shoe}/>
+                        {/* <button onClick={handleDelete} value={shoe.id}>X</button> */}
                     </div>
                 )
                 })}
+                <Add handleCreate={handleCreate}/>
                 </div>
         </>
     );

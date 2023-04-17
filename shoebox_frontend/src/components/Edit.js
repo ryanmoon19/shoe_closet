@@ -18,9 +18,9 @@ const Edit = (props) => {
         })
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault() 
-        handleUpdate(shoe)
+        await handleUpdate(shoe)
     };
 
     return (

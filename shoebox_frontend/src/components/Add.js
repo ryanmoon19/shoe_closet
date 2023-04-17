@@ -4,24 +4,25 @@ import { useNavigate } from 'react-router-dom'
 
 const Add = (props) => {
     let emptyShoe = {name: '', description: '', price: '', image: ''}
-    const [shoe, setShoe] = useState(emptyShoe)
-    const navigate = useNavigate([])
+    const [newShoe, setNewShoe] = useState(emptyShoe)
+    const navigate = useNavigate()
 
     const handleCreate = (addShoe) => {
         axios 
         .post('https://shoebox-backend.onrender.com/shoes', addShoe)
         .then((res) => {
             console.log(res)
+            
         })
     };
 
     const handleChange = (e) => {
-        setShoe({...shoe, [e.target.name]: e.target.value})
+        setNewShoe({...newShoe, [e.target.name]: e.target.value})
     };
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault()
-        await handleCreate(shoe)
+        handleCreate(newShoe)
         navigate('/display')
     };
 

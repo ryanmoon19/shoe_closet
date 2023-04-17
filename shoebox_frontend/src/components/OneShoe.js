@@ -3,7 +3,7 @@ import axios from 'axios'
 import { Link, useParams, useNavigate } from 'react-router-dom'
 import Edit from './Edit'
 
-function OneShoe() {
+function Oneshoe() {
     const [shoe, setShoe] = useState({})
     const {id} = useParams()
     const navigate = useNavigate()
@@ -62,4 +62,4 @@ function OneShoe() {
     )
     }
 
-export default OneShoe
+export default Oneshoe
